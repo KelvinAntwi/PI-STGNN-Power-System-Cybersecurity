@@ -183,6 +183,4 @@ The current results are intended to evaluate the model architecture and physics-
 
 If you use this repository in your research, please cite:
 
-```text
-[Add citation when the associated paper is published]
-```
+Antwi Nana Kelvin. Physics-Informed Spatio-Temporal Graph Neural Network for Power-System Cybersecurity. GitHub repository, 2026.
