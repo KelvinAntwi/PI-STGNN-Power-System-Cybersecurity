@@ -133,19 +133,6 @@ The training and evaluation curves are shown below.
 <img width="989" height="592" alt="image" src="https://github.com/user-attachments/assets/1aded6fb-8143-47bc-ae2a-63f359bf7a90" />
 
 
-## Repository Structure
-
-```text
-PI-STGNN-Power-System-Cybersecurity/
-│
-├── README.md
-├── PI_ST_GNN_Model.ipynb
-├── requirements.txt
-├── results/
-│   └── ac_performance_results.png
-└── LICENSE
-```
-
 ## Running the Notebook
 
 The main implementation is contained in:
@@ -167,15 +154,6 @@ Then open and run the notebook from start to finish.
 This implementation is an experimental study using the IEEE 14-bus system, synthetic power-system measurements, and simulated FDI attacks.
 
 The current results are intended to evaluate the model architecture and physics-informed learning approach. Further evaluation with larger networks, realistic measurement datasets, and more diverse attack scenarios would be required before practical deployment.
-
-## Research Areas
-
-* Power-system cybersecurity
-* False Data Injection attacks
-* Graph neural networks
-* Spatio-temporal learning
-* Physics-informed machine learning
-* AC power-system modeling
 
 ## Citation
 
