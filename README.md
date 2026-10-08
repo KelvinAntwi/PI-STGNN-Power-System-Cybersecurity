@@ -150,6 +150,8 @@ PI-STGNN-Power-System-Cybersecurity/
 
 The main implementation is contained in:
 
+<img width="989" height="592" alt="image" src="https://github.com/user-attachments/assets/70994186-3e5c-4e73-adde-1564bda4b5c6" />
+
 `PI_ST_GNN_Model.ipynb`
 
 The notebook can be run in **Google Colab** or a local Python environment.
