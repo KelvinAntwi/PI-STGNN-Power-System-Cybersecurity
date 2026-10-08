@@ -130,7 +130,8 @@ The model achieved **81% accuracy** on the test set, with an **F1-score of 0.79 
 
 The training and evaluation curves are shown below.
 
-![Model Evaluation Results](results/ac_performance_results.png)
+<img width="989" height="592" alt="image" src="https://github.com/user-attachments/assets/1aded6fb-8143-47bc-ae2a-63f359bf7a90" />
+
 
 ## Repository Structure
 
