@@ -71,9 +71,9 @@ The physics loss compares the calculated P and Q values with the corresponding m
 The overall training objective is:
 
 ℒ = ℒclass + 0.5ℒrecon + λphysℒphys
-where:
 
-λphys = 0.05
+where λphys = 0.05.
+
 This adds a physical consistency constraint to the learning process rather than relying only on the classification error.
 
 ## FDI Attack Simulation
@@ -128,9 +128,9 @@ The trained model was evaluated on a separate **100-sample test set**.
 
 The model achieved **81% accuracy** on the test set, with an **F1-score of 0.79 for the FDI attack class**.
 
-The training and evaluation curves are saved in:
+The training and evaluation curves are shown below.
 
-`results/ac_performance_results.png`
+![Model Evaluation Results](results/ac_performance_results.png)
 
 ## Repository Structure
 
@@ -142,15 +142,12 @@ PI-STGNN-Power-System-Cybersecurity/
 ├── requirements.txt
 ├── results/
 │   └── ac_performance_results.png
-├── figures/
 └── LICENSE
 ```
 
 ## Running the Notebook
 
 The main implementation is contained in:
-
-<img width="989" height="592" alt="image" src="https://github.com/user-attachments/assets/70994186-3e5c-4e73-adde-1564bda4b5c6" />
 
 `PI_ST_GNN_Model.ipynb`
 
@@ -181,6 +178,6 @@ The current results are intended to evaluate the model architecture and physics-
 
 ## Citation
 
-If you use this repository in your research, please cite:
+Antwi Nana Kelvin. *Physics-Informed Spatio-Temporal Graph Neural Network for Power-System Cybersecurity.* GitHub repository, 2026.
 
-Antwi Nana Kelvin. Physics-Informed Spatio-Temporal Graph Neural Network for Power-System Cybersecurity. GitHub repository, 2026.
+This repository contains the implementation developed as part of ongoing research on physics-informed graph neural networks for power-system cybersecurity.
