@@ -132,9 +132,16 @@ The training and evaluation curves are shown below.
 
 <img width="989" height="592" alt="image" src="https://github.com/user-attachments/assets/1aded6fb-8143-47bc-ae2a-63f359bf7a90" />
 
+### Test-Set Evaluation
+
+The confusion matrix below summarizes the PI-STGNN model's classification performance on the held-out test set of 100 samples.
+
+![PI-STGNN test-set confusion matrix](<img width="989" height="592" alt="image" src="https://github.com/user-attachments/assets/794a55c0-c35d-4e1c-bc6e-5354a7f38871" />
+)
+
 ## Running the Notebook
 
-The complete PI-STGNN implementation is available in [`PI_ST_GNN_Model.ipynb`](PI_ST_GNN_Model.ipynb). Open the notebook to inspect the model architecture, training procedure, and evaluation code.
+The complete PI-STGNN implementation is available in (PI_ST_GNN_Model.ipynb). Open the notebook to inspect the model architecture, training procedure, and evaluation code.
 
 ## Current Scope
 
