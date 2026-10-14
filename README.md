@@ -58,48 +58,32 @@ Spatio-Temporal Block × 2
 
 The physics-informed component uses the conductance (G) and susceptance (B) matrices derived from the IEEE 14-bus network admittance matrix.
 
+## Physics-Informed Component
+
+The physics-informed component uses the conductance (G) and susceptance (B) matrices derived from the IEEE 14-bus network admittance matrix.
+
 The active-power injection at bus *i* is calculated using the nonlinear AC power-flow relationship:
 
-\[
-P_i = V_i \sum_{j=1}^{N} V_j
-\left[
-G_{ij}\cos(\theta_i-\theta_j)
-+
-B_{ij}\sin(\theta_i-\theta_j)
-\right]
-\]
+Pᵢ = Vᵢ Σⱼ₌₁ᴺ Vⱼ [Gᵢⱼ cos(θᵢ − θⱼ) + Bᵢⱼ sin(θᵢ − θⱼ)]
 
 The corresponding reactive-power relationship is:
 
-\[
-Q_i = V_i \sum_{j=1}^{N} V_j
-\left[
-G_{ij}\sin(\theta_i-\theta_j)
--
-B_{ij}\cos(\theta_i-\theta_j)
-\right]
-\]
+Qᵢ = Vᵢ Σⱼ₌₁ᴺ Vⱼ [Gᵢⱼ sin(θᵢ − θⱼ) − Bᵢⱼ cos(θᵢ − θⱼ)]
 
 The physics-consistency loss compares the calculated active and reactive power values with their corresponding measurements.
 
 The overall training objective is:
 
-\[
-\mathcal{L}
-=
-\mathcal{L}_{class}
-+
-0.5\mathcal{L}_{recon}
-+
-\lambda_{phys}\mathcal{L}_{phys}
-\]
+ℒ = ℒclass + 0.5ℒrecon + λphysℒphys
 
 where:
 
-- \(\mathcal{L}_{class}\): Classification loss
-- \(\mathcal{L}_{recon}\): Reconstruction loss
-- \(\mathcal{L}_{phys}\): Physics-consistency loss
-- \(\lambda_{phys}=0.05\): Physics-loss weighting coefficient
+- ℒclass: Classification loss
+- ℒrecon: Reconstruction loss
+- ℒphys: Physics-consistency loss
+- λphys = 0.05: Physics-loss weighting coefficient
+
+This formulation introduces a physical consistency constraint alongside the classification and reconstruction objectives.
 
 This formulation introduces a physical consistency constraint alongside the classification and reconstruction objectives.
 
