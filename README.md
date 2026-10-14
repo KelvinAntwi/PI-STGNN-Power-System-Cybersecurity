@@ -212,6 +212,7 @@ The reported metrics correspond to the documented experimental run. For more com
 
 This implementation is an experimental investigation of physics-informed spatio-temporal graph learning for power-system cybersecurity.
 
+
 Its current scope includes:
 
 - Evaluation on the IEEE 14-bus test system.
@@ -230,4 +231,4 @@ Antwi, N. K. (2026). *Physics-Informed Spatio-Temporal Graph Neural Network for 
 
 https://github.com/KelvinAntwi/PI-STGNN-Power-System-Cybersecurity
 
-This repository contains a research implementation developed as part of ongoing work on physics-informed graph neural networks for power-system cybersecurity.
+This repository contains a research implementation developed as part of ongoing work on physics-informed graph neural networks for power-system cybersecurity
