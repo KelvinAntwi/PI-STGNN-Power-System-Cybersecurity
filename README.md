@@ -139,10 +139,6 @@ The main implementation is contained in:
 
 `PI_ST_GNN_Model.ipynb`
 
-The notebook can be run in **Google Colab** or a local Python environment.
-
-### Run the Notebook
-
 Open the PI-STGNN implementation in Google Colab to inspect and run the model.
 
 [Open in Google Colab](https://colab.research.google.com/drive/1Uy5WzzDNBgdhuLFANM4sYOWMKHyqNvyH?usp=sharing)
