@@ -136,8 +136,7 @@ The training and evaluation curves are shown below.
 
 The confusion matrix below summarizes the PI-STGNN model's classification performance on the held-out test set of 100 samples.
 
-![PI-STGNN test-set confusion matrix](<img width="989" height="592" alt="image" src="https://github.com/user-attachments/assets/794a55c0-c35d-4e1c-bc6e-5354a7f38871" />
-)
+<img width="733" height="590" alt="image" src="https://github.com/user-attachments/assets/789a186b-fb77-44b5-a1a8-8b1e1ceaee21" />
 
 ## Running the Notebook
 
