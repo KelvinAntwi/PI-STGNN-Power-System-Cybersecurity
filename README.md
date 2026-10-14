@@ -141,14 +141,11 @@ The main implementation is contained in:
 
 The notebook can be run in **Google Colab** or a local Python environment.
 
-Install the required packages with:
+### Run the Notebook
 
-```bash
-pip install -r requirements.txt
-```
+Open the PI-STGNN implementation in Google Colab to inspect and run the model.
 
-Then open and run the notebook from start to finish.
-
+[Open in Google Colab](https://colab.research.google.com/drive/1Uy5WzzDNBgdhuLFANM4sYOWMKHyqNvyH?usp=sharing)
 ## Current Scope
 
 This implementation is an experimental study using the IEEE 14-bus system, synthetic power-system measurements, and simulated FDI attacks.
