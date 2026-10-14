@@ -58,10 +58,6 @@ Spatio-Temporal Block × 2
 
 The physics-informed component uses the conductance (G) and susceptance (B) matrices derived from the IEEE 14-bus network admittance matrix.
 
-## Physics-Informed Component
-
-The physics-informed component uses the conductance (G) and susceptance (B) matrices derived from the IEEE 14-bus network admittance matrix.
-
 The active-power injection at bus *i* is calculated using the nonlinear AC power-flow relationship:
 
 Pᵢ = Vᵢ Σⱼ₌₁ᴺ Vⱼ [Gᵢⱼ cos(θᵢ − θⱼ) + Bᵢⱼ sin(θᵢ − θⱼ)]
