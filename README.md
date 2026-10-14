@@ -132,16 +132,10 @@ The training and evaluation curves are shown below.
 
 <img width="989" height="592" alt="image" src="https://github.com/user-attachments/assets/1aded6fb-8143-47bc-ae2a-63f359bf7a90" />
 
-
 ## Running the Notebook
 
-The main implementation is contained in:
+The complete PI-STGNN implementation is available in [`PI_ST_GNN_Model.ipynb`](PI_ST_GNN_Model.ipynb). Open the notebook to inspect the model architecture, training procedure, and evaluation code.
 
-`PI_ST_GNN_Model.ipynb`
-
-Open the PI-STGNN implementation in Google Colab to inspect and run the model.
-
-[Open in Google Colab](https://colab.research.google.com/drive/1Uy5WzzDNBgdhuLFANM4sYOWMKHyqNvyH?usp=sharing)
 ## Current Scope
 
 This implementation is an experimental study using the IEEE 14-bus system, synthetic power-system measurements, and simulated FDI attacks.
