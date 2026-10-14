@@ -1,8 +1,8 @@
 # Physics-Informed Spatio-Temporal GNN for Power-System Cybersecurity
 
-A research implementation of a **Physics-Informed Spatio-Temporal Graph Neural Network (PI-STGNN)** for detecting False Data Injection (FDI) attacks in power-system measurements.
+A research implementation of a **Physics-Informed Spatio-Temporal Graph Neural Network (PI-STGNN)** for detecting false data injection (FDI) attacks in power-system measurements.
 
-The model combines temporal convolution, multi-head graph attention, and nonlinear AC power-flow constraints to detect manipulated measurements while incorporating the physical relationships between interconnected buses.
+The model combines temporal convolution, multi-head graph attention, and nonlinear AC power-flow constraints to detect manipulated measurements while incorporating physical relationships between interconnected buses.
 
 ## Overview
 
@@ -33,31 +33,30 @@ The learned representation supports two tasks:
 
 ```text
 Input: P, Q, |V|, θ
-        │
-        ▼
+       │
+       ▼
 Temporal Convolution
-        │
-        ▼
+       │
+       ▼
 Gated Temporal Convolution
-        │
-        ▼
+       │
+       ▼
 Multi-Head Graph Attention
-        │
-        ▼
+       │
+       ▼
 Spatio-Temporal Block × 2
-        │
-        ├──────────────► Attack Classification
-        │
-        └──────────────► State Reconstruction
-                                │
-                                ▼
-                       Physics Consistency
+       │
+       ├──────────────► Attack Classification
+       │
+       └──────────────► State Reconstruction
+                               │
+                               ▼
+                      Physics Consistency
 ```
 
 ## Physics-Informed Component
 
 The physics-informed component uses the conductance (G) and susceptance (B) matrices derived from the IEEE 14-bus network admittance matrix.
-
 The active-power injection at bus *i* is calculated using the nonlinear AC power-flow relationship:
 
 Pᵢ = Vᵢ Σⱼ₌₁ᴺ Vⱼ [Gᵢⱼ cos(θᵢ − θⱼ) + Bᵢⱼ sin(θᵢ − θⱼ)]
@@ -81,17 +80,15 @@ where:
 
 This formulation introduces a physical consistency constraint alongside the classification and reconstruction objectives.
 
-This formulation introduces a physical consistency constraint alongside the classification and reconstruction objectives.
-
 ## FDI Attack Simulation
 
-The experiment uses synthetic telemetry to simulate normal operating measurements and false-data-injection attacks.
+The experiment uses synthetic telemetry to simulate normal operating measurements and false data injection attacks.
 
 For attack samples, active-power measurements at selected buses are deliberately perturbed.
 
 | Parameter | Description |
 |---|---|
-| Attack type | Synthetic false-data injection |
+| Attack type | Synthetic false data injection |
 | Affected measurement | Active power (P) |
 | Selected buses | 4–6 |
 | Classification task | Normal vs. attack |
@@ -120,29 +117,23 @@ The current experiment focuses on detecting these simulated measurement manipula
 
 ## Experimental Results
 
-The PI-STGNN was trained for 150 epochs and subsequently evaluated on a separate synthetic test set containing 100 samples: 55 normal and 45 attack samples.
+The PI-STGNN was trained for 150 epochs and evaluated on a held-out synthetic test set containing 100 samples: 55 normal samples and 45 FDI attack samples.
 
 The results below correspond to the latest reported experimental run.
 
 ### 1. Training Performance
 
-At epoch 150, the model recorded:
+At epoch 150, the model recorded the following training-batch metrics:
 
 | Training Metric | Result |
 |---|---:|
-| Training accuracy | 81.25% |
-| Attack F1-score | 81.25% |
-| Total loss | 0.7294 |
-| Classification loss | 0.4004 |
-| Physics residual | 0.3666 |
+| Training accuracy | 78.12% |
+| Attack F1-score | 77.42% |
+| Total loss | 0.7511 |
+| Classification loss | 0.4263 |
+| Physics residual | 0.3123 |
 
-The training-performance figure illustrates the evolution of classification loss, physics residual, detection accuracy, and attack F1-score across the training epochs.
-
-**Figure 1. PI-STGNN Training Performance on the IEEE 14-Bus System**
-
-<img width="989" height="592" alt="PI-STGNN training performance showing classification loss, physics residual, accuracy and attack F1-score across epochs" src="https://github.com/user-attachments/assets/1aded6fb-8143-47bc-ae2a-63f359bf7a90" />
-
-*Note: Training metrics are calculated on generated training batches. The final-epoch values should not be interpreted as aggregate performance across the entire training dataset.*
+<img width="989" height="592" alt="image" src="https://github.com/user-attachments/assets/ae80e0a2-bd49-4419-a28b-dd50b081f178" />
 
 ### 2. Held-Out Test Performance
 
@@ -150,20 +141,21 @@ The trained model was evaluated on a separate 100-sample synthetic test set.
 
 | Evaluation Metric | Result |
 |---|---:|
-| Test accuracy | **83.00%** |
-| Classification loss | 0.3788 |
-| Physics residual | 0.3404 |
+| Test accuracy | **79.00%** |
+| Classification loss | 0.4386 |
+| Physics residual | 0.4205 |
 
 **Class-wise Classification Performance**
 
 | Class | Precision | Recall | F1-score | Support |
 |---|---:|---:|---:|---:|
-| Normal (0) | 0.83 | 0.87 | 0.85 | 55 |
-| Attack (1) | 0.83 | 0.78 | 0.80 | 45 |
+| Normal (0) | 0.93 | 0.67 | 0.78 | 55 |
+| Attack (1) | 0.70 | 0.93 | 0.80 | 45 |
+| Overall accuracy | — | — | 0.79 | 100 |
 
-The model correctly classified 83 of the 100 test samples, achieving an attack-class precision of approximately 83%, recall of 78%, and F1-score of 80%.
+The model achieved 79% overall test accuracy and an 80% F1-score for the attack class. Attack recall was 93%, indicating that most attack samples in this test set were detected. However, normal-class recall was 67%, meaning that some normal samples were incorrectly flagged as attacks.
 
-These results describe performance on the simulated test distribution and should not be interpreted as validation on operational power-grid measurements.
+These results illustrate the model's detection performance under the defined synthetic test conditions. They do not establish performance on operational power-grid measurements.
 
 ### 3. Test-Set Confusion Matrix
 
@@ -171,22 +163,17 @@ The confusion matrix summarizes the model's predictions on the held-out test set
 
 | Actual / Predicted | Normal (0) | Attack (1) |
 |---|---:|---:|
-| Normal (0) | 48 | 7 |
-| Attack (1) | 10 | 35 |
+| Normal (0) | 37 | 18 |
+| Attack (1) | 3 | 42 |
 
 The evaluation recorded:
 
-- 48 correctly classified normal samples.
-- 35 correctly detected attack samples.
-- 7 normal samples incorrectly classified as attacks.
-- 10 attack samples incorrectly classified as normal.
+- 37 correctly classified normal samples.
+- 42 correctly detected attack samples.
+- 18 normal samples incorrectly classified as attacks.
+- 3 attack samples incorrectly classified as normal.
 
-**Figure 2. PI-STGNN Test-Set Confusion Matrix**
-
-<img width="733" height="590" alt="image" src="https://github.com/user-attachments/assets/acf53c39-c9a4-4217-9786-7b94ffae3ce2" />
-
-
-*The confusion matrix visualizes the classification results from the held-out test set, independently of the training-performance curves.*
+<img width="733" height="590" alt="image" src="https://github.com/user-attachments/assets/eaaf7f5f-937e-4119-a943-42473d130734" />
 
 ## Running the Notebook
 
@@ -196,18 +183,15 @@ The PI-STGNN implementation is available in the repository notebook:
 
 Open the notebook to inspect the model architecture, synthetic data generation, training procedure, physics-informed loss implementation, and final evaluation.
 
-The notebook can also be opened in Google Colab for execution.
-
-### Reproducibility
+## Reproducibility
 
 The experiment involves random model initialization and synthetic data generation. Consequently, results may vary between independent executions unless random seeds and the computational environment are controlled.
 
-The reported metrics correspond to the documented experimental run. For more comprehensive performance assessment, future experiments should include repeated runs with controlled random seeds and report aggregate statistics.
+The reported metrics correspond to the experimental run documented above. More comprehensive performance assessment would require repeated runs under controlled conditions, with aggregate statistics reported across runs.
 
 ## Current Scope and Limitations
 
 This implementation is an experimental investigation of physics-informed spatio-temporal graph learning for power-system cybersecurity.
-
 
 Its current scope includes:
 
@@ -227,4 +211,4 @@ Antwi, N. K. (2026). *Physics-Informed Spatio-Temporal Graph Neural Network for 
 
 https://github.com/KelvinAntwi/PI-STGNN-Power-System-Cybersecurity
 
-This repository contains a research implementation developed as part of ongoing work on physics-informed graph neural networks for power-system cybersecurity
+This repository contains a research implementation developed as part of ongoing work on physics-informed graph neural networks for power-system cybersecurity.
