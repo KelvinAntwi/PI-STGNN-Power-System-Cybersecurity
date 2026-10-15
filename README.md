@@ -199,11 +199,14 @@ Its current scope includes:
 - Synthetically generated measurement sequences.
 - Simulated FDI attacks affecting selected active-power measurements.
 - Binary classification of normal and manipulated measurements.
-- Physics-informed learning using nonlinear AC power-flow relationships.
 
 Further investigation is required to assess generalization across larger power networks, realistic operating conditions, measurement noise, different attack strategies, and real-world power-system datasets.
 
 The reported results demonstrate performance under the defined experimental conditions and do not establish deployment readiness.
+
+## Researcher Contributions
+
+I independently conducted the research, developed and implemented the Physics-Informed Spatio-Temporal Graph Neural Network (PI-STGNN), incorporated power-system physics constraints, designed and ran experiments on the IEEE 14-bus test system, and evaluated the model’s performance in detecting false data injection attacks. Mr. Godfred Kofi Junior Tano served as my supervisor, reviewing the work and providing academic oversight.
 
 ## Citation
 
